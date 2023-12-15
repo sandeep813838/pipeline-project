@@ -1,10 +1,25 @@
 pipeline {
     agent any
     stages {
-        stage(‘Build’) {
+        stage('Git Checkout'){
+            steps{
+            gitCheckout(
+                branch: "main",
+                url: "https://github.com/sandeep813838/pipeline-project.git"
+            )
+            }
+          }
+        
+		stage(‘Build’) {
             steps {
                 sh 'git --version'
             }
         }
+		stage(‘system info’) {
+            steps {
+                sh 'script.sh'
+            }
+        }
     }
 }
+
