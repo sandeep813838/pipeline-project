@@ -16,7 +16,7 @@ pipeline {
                 sh 'git --version'
             }
         }
-		stage(‘system info’) {
+		stage(‘test’) {
             steps {
                 sh 'script.sh'
             }
