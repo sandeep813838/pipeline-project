@@ -1,6 +1,14 @@
 pipeline {
     agent any
     stages {
+          stage('Git Checkout'){
+                    when { expression {  params.action == 'create' } }
+            steps{
+            gitCheckout(
+                branch: "main",
+                url: "https://github.com/sandeep813838/pipeline-project.git"
+            )
+            }
         stage(‘Build’) {
             steps {
                 sh 'git --version'
