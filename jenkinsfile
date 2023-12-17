@@ -23,6 +23,7 @@ pipeline {
         }
              stage(‘serverIPs’) {
             steps {
+                sh 'export ANSIBLE_CONFIG=/opt/ansible/ansible.cfg'
                 sh 'ansible-playbook /opt/ansible/playbooks/find-system-info.yml'
             }
         }
