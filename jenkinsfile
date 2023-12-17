@@ -21,6 +21,11 @@ pipeline {
                 sh 'sh script.sh'
             }
         }
+             stage(‘serverIPs’) {
+            steps {
+                sh 'ansible-playbook /opt/ansible/playbooks/find-system-info.yml'
+            }
+        }
     }
 }
 
